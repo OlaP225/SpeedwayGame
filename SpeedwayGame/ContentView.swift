@@ -15,6 +15,8 @@ struct Player: Identifiable, Equatable {
 }
 
 struct ContentView: View {
+    @State private var remainingTime: Int = 240
+    @State private var timer: Timer? = nil
     
     @State private var players = [
         Player(firstName: "Maciej", lastName: "J", imageName: "player1"),
@@ -22,7 +24,9 @@ struct ContentView: View {
         Player(firstName: "Daniel", lastName: "B", imageName: "player3"),
         Player(firstName: "Tai", lastName: "W", imageName: "player1")
     ]
-    @State private var editMode: EditMode = .inactive
+    @State private var editMode: EditMode = .active
+    
+    private var timeToStart = Date.now
     
     var body: some View {
         
@@ -32,17 +36,35 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack{
-                
-                Text("Bieg 1")
-                    
-                    .padding(.all, 6)
-                    .shadow(color: .red, radius: 20)
-                    .cornerRadius(20)
-                    .font(.largeTitle)
-                    .foregroundColor(Color.white)
-                    .bold()
-                
                 Spacer()
+                
+                HStack {
+                    Spacer()
+                    Text("Bieg 1")
+                        .padding(.all, 6)
+                        .shadow(color: .black, radius: 3)
+                        .cornerRadius(20)
+                        .font(.largeTitle)
+                        .foregroundColor(Color.white)
+                        .bold()
+                        .padding(.bottom, 40)
+                    
+                    Spacer()
+                    
+                    TimerView(remainingTime: $remainingTime, timer: $timer)
+                    
+                    Spacer()
+                }
+                
+                
+                Text("Ustaw zawodników według ilości punktów, które według Ciebie zdobędą i zagłosuj!")
+                    .padding(.horizontal, 20)
+                    .shadow(color: .black, radius: 3)
+                    .font(.headline)
+                    .foregroundColor(Color.white)
+                    .multilineTextAlignment(.center)
+                
+
                 
                 VStack{
                     List {
@@ -81,21 +103,9 @@ struct ContentView: View {
                     .background(Color.clear)
                     .frame(width: 400, height: 500)
                     
-                    
-                    
-                    Button(action: { withAnimation {
-                        editMode = (editMode == .inactive) ? .active : .inactive
-                    }
-                    }) {
-                        Text(editMode == .inactive ? "Edytuj" : "Gotowe")
-                            .foregroundColor(.blue)
-                            .padding()
-                            .background(Color.white.opacity(0.8))
-                            .cornerRadius(10)
-                            .bold()
-                    }
                 }
                 
+                Spacer()
                 Spacer()
                 
             }
