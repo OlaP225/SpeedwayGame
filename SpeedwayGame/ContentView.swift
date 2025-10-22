@@ -17,10 +17,10 @@ struct Player: Identifiable, Equatable {
 struct ContentView: View {
     
     @State private var players = [
-        Player(firstName: "Maciej", lastName: "Janowski", imageName: "player1"),
-        Player(firstName: "Bartłomiej", lastName: "Kowalski", imageName: "player2"),
-        Player(firstName: "Daniel", lastName: "Bewley", imageName: "player3"),
-        Player(firstName: "Tai", lastName: "Wofinden", imageName: "player1")
+        Player(firstName: "Maciej", lastName: "J", imageName: "player1"),
+        Player(firstName: "Bartłomiej", lastName: "K", imageName: "player2"),
+        Player(firstName: "Daniel", lastName: "B", imageName: "player3"),
+        Player(firstName: "Tai", lastName: "W", imageName: "player1")
     ]
     @State private var editMode: EditMode = .inactive
     
@@ -30,70 +30,77 @@ struct ContentView: View {
             Image("background")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
-            Image("dashund2").clipShape(.circle)
-                .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                .shadow(color: Color.white, radius: 3)
-            Text("Bieg 1")
-                .padding(.all, 6)
-                .shadow(color: .white, radius: 20)
-                .cornerRadius(20)
-                .font(.largeTitle)
-                .foregroundColor(Color.white)
-                .bold()
-                .padding(.bottom, 650)
-                .padding(.trailing, 210)
+            
             VStack{
-                List {
-                    ForEach(players, id: \.id) { player in
-                        
-                        HStack{
-                            
-                            Image(player.imageName)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 80, height: 80)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.gray, lineWidth: 2))
-                                .shadow(radius: 5)
-                            Spacer()
-                            
-                            Text(player.firstName)
-                                .font(.title2)
-                                .foregroundColor(.black)
-                            Text(player.lastName)
-                                .font(.title2)
-                                .foregroundColor(.black)
-                        
-                            
-                            Spacer()
-                            Spacer()
-                        }
-                        .listRowBackground(Color.white.opacity(0.8))
-                        
+                
+                Text("Bieg 1")
                     
+                    .padding(.all, 6)
+                    .shadow(color: .red, radius: 20)
+                    .cornerRadius(20)
+                    .font(.largeTitle)
+                    .foregroundColor(Color.white)
+                    .bold()
+                
+                Spacer()
+                
+                VStack{
+                    List {
+                        ForEach(players, id: \.id) { player in
+                            
+                            HStack{
+                                
+                                Image(player.imageName)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 80, height: 80)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.gray, lineWidth: 2))
+                                    .shadow(radius: 5)
+                                Spacer()
+                                
+                                Text(player.firstName)
+                                    .font(.title2)
+                                    .foregroundColor(.black)
+                                Text(player.lastName)
+                                    .font(.title2)
+                                    .foregroundColor(.black)
+                            
+                                
+                                Spacer()
+                                Spacer()
+                            }
+                            .listRowBackground(Color.white.opacity(0.8))
                         
+                            
+                        }
+                        .onMove(perform: onMove)
+                    }
+                    .environment(\.editMode, $editMode)
+                    .scrollContentBackground(.hidden)
+                    .background(Color.clear)
+                    .frame(width: 400, height: 500)
+                    
+                    
+                    
+                    Button(action: { withAnimation {
+                        editMode = (editMode == .inactive) ? .active : .inactive
+                    }
+                    }) {
+                        Text(editMode == .inactive ? "Edytuj" : "Gotowe")
+                            .foregroundColor(.blue)
+                            .padding()
+                            .background(Color.white.opacity(0.8))
+                            .cornerRadius(10)
+                            .bold()
                     }
                 }
-                .environment(\.editMode, $editMode)
-                .scrollContentBackground(.hidden)
-                .background(Color.clear)
-                .frame(width: 400, height: 500)
-                .cornerRadius(20)
                 
+                Spacer()
                 
-                
-                Button(action: { withAnimation {
-                    editMode = (editMode == .inactive) ? .active : .inactive
-                }
-                }) {
-                    Text(editMode == .inactive ? "Edytuj" : "Gotowe")
-                        .foregroundColor(.blue)
-                        .padding()
-                        .background(Color.white.opacity(0.8))
-                        .cornerRadius(10)
-                        .bold()
-                }
             }
+            
+
         }
         
         
