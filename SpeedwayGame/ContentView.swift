@@ -20,7 +20,7 @@ struct ContentView: View {
     
     @State private var players = [
         Player(firstName: "Maciej", lastName: "J", imageName: "player1"),
-        Player(firstName: "Bartłomiej", lastName: "K", imageName: "player2"),
+        Player(firstName: "Bart", lastName: "K", imageName: "player2"),
         Player(firstName: "Daniel", lastName: "B", imageName: "player3"),
         Player(firstName: "Tai", lastName: "W", imageName: "player1")
     ]
@@ -66,9 +66,23 @@ struct ContentView: View {
                 
                 VStack{
                     List {
-                        ForEach(players, id: \.id) { player in
+                        ForEach(Array(players.enumerated()), id: \.element.id) { index, player in
                             
                             HStack{
+                                
+                                Text("\(3-index)")
+                                    .font(.title)
+                                    .bold()
+                                    .foregroundColor(.black)
+                                    .frame(width: 20)
+                                    .padding(.horizontal, 20)
+                                    .padding(.vertical, 20)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.black, lineWidth: 1)
+                                    )
+                                Spacer()
+                                
                                 
                                 Image(player.imageName)
                                     .resizable()
@@ -77,7 +91,6 @@ struct ContentView: View {
                                     .clipShape(Circle())
                                     .overlay(Circle().stroke(Color.gray, lineWidth: 2))
                                     .shadow(radius: 5)
-                                Spacer()
                                 
                                 Text(player.firstName)
                                     .font(.title2)
