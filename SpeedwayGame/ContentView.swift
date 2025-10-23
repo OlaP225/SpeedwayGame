@@ -64,8 +64,6 @@ struct ContentView: View {
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.center)
                 
-
-                
                 VStack{
                     List {
                         ForEach(players, id: \.id) { player in
@@ -105,7 +103,8 @@ struct ContentView: View {
                     
                 }
                 
-                Spacer()
+            
+
                 Spacer()
                 
             }

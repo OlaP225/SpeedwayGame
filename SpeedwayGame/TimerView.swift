@@ -37,7 +37,7 @@ struct TimerView: View {
     var formattedTime: String {
         let minutes = remainingTime/60
         let seconds = remainingTime % 60
-        return String(format: "%02d:%02d", minutes, seconds)
+        return String(format: "%0d:%02d", minutes, seconds)
     }
     
     
