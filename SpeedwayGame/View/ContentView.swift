@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-struct Player: Identifiable, Equatable {
-    let id = UUID()
-    var firstName: String
-    var lastName: String
-    var imageName: String
-}
-
 struct ContentView: View {
     @State private var remainingTime: Int = 240
     @State private var timer: Timer? = nil
