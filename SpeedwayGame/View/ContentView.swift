@@ -120,9 +120,6 @@ struct ContentView: View {
         
         
     }
-    func onMove( from source: IndexSet, to destination: Int){
-        players.move(fromOffsets: source, toOffset: destination)
-    }
     
 }
 

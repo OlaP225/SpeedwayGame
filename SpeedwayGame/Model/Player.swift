@@ -13,3 +13,4 @@ struct Player: Identifiable, Equatable {
     var lastName: String
     var imageName: String
 }
+
