@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		6FC8641F2EC4709100D77439 /* PBXContainerItemProxy */ = {
+		6FC864A62EC4747F00D77439 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6F3474472EA7D499006ADE3D /* Project object */;
 			proxyType = 1;
@@ -18,13 +18,18 @@
 
 /* Begin PBXFileReference section */
 		6F34744F2EA7D499006ADE3D /* SpeedwayGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedwayGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FC8641B2EC4709100D77439 /* SpeedwayGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedwayGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FC864A22EC4747F00D77439 /* SpeedwayGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedwayGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6F3474512EA7D499006ADE3D /* SpeedwayGame */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SpeedwayGame;
+			sourceTree = "<group>";
+		};
+		6FC864A32EC4747F00D77439 /* SpeedwayGameTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SpeedwayGameTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -37,7 +42,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6FC864182EC4709100D77439 /* Frameworks */ = {
+		6FC8649F2EC4747F00D77439 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				6F3474512EA7D499006ADE3D /* SpeedwayGame */,
+				6FC864A32EC4747F00D77439 /* SpeedwayGameTests */,
 				6F3474502EA7D499006ADE3D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				6F34744F2EA7D499006ADE3D /* SpeedwayGame.app */,
-				6FC8641B2EC4709100D77439 /* SpeedwayGameTests.xctest */,
+				6FC864A22EC4747F00D77439 /* SpeedwayGameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,24 +95,27 @@
 			productReference = 6F34744F2EA7D499006ADE3D /* SpeedwayGame.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6FC8641A2EC4709100D77439 /* SpeedwayGameTests */ = {
+		6FC864A12EC4747F00D77439 /* SpeedwayGameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6FC864212EC4709100D77439 /* Build configuration list for PBXNativeTarget "SpeedwayGameTests" */;
+			buildConfigurationList = 6FC864AA2EC4747F00D77439 /* Build configuration list for PBXNativeTarget "SpeedwayGameTests" */;
 			buildPhases = (
-				6FC864172EC4709100D77439 /* Sources */,
-				6FC864182EC4709100D77439 /* Frameworks */,
-				6FC864192EC4709100D77439 /* Resources */,
+				6FC8649E2EC4747F00D77439 /* Sources */,
+				6FC8649F2EC4747F00D77439 /* Frameworks */,
+				6FC864A02EC4747F00D77439 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6FC864202EC4709100D77439 /* PBXTargetDependency */,
+				6FC864A72EC4747F00D77439 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6FC864A32EC4747F00D77439 /* SpeedwayGameTests */,
 			);
 			name = SpeedwayGameTests;
 			packageProductDependencies = (
 			);
 			productName = SpeedwayGameTests;
-			productReference = 6FC8641B2EC4709100D77439 /* SpeedwayGameTests.xctest */;
+			productReference = 6FC864A22EC4747F00D77439 /* SpeedwayGameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -122,7 +131,7 @@
 					6F34744E2EA7D499006ADE3D = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					6FC8641A2EC4709100D77439 = {
+					6FC864A12EC4747F00D77439 = {
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = 6F34744E2EA7D499006ADE3D;
 					};
@@ -143,7 +152,7 @@
 			projectRoot = "";
 			targets = (
 				6F34744E2EA7D499006ADE3D /* SpeedwayGame */,
-				6FC8641A2EC4709100D77439 /* SpeedwayGameTests */,
+				6FC864A12EC4747F00D77439 /* SpeedwayGameTests */,
 			);
 		};
 /* End PBXProject section */
@@ -156,7 +165,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6FC864192EC4709100D77439 /* Resources */ = {
+		6FC864A02EC4747F00D77439 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -173,7 +182,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6FC864172EC4709100D77439 /* Sources */ = {
+		6FC8649E2EC4747F00D77439 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -183,10 +192,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6FC864202EC4709100D77439 /* PBXTargetDependency */ = {
+		6FC864A72EC4747F00D77439 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6F34744E2EA7D499006ADE3D /* SpeedwayGame */;
-			targetProxy = 6FC8641F2EC4709100D77439 /* PBXContainerItemProxy */;
+			targetProxy = 6FC864A62EC4747F00D77439 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -370,7 +379,7 @@
 			};
 			name = Release;
 		};
-		6FC864222EC4709100D77439 /* Debug */ = {
+		6FC864A82EC4747F00D77439 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -388,7 +397,7 @@
 			};
 			name = Debug;
 		};
-		6FC864232EC4709100D77439 /* Release */ = {
+		6FC864A92EC4747F00D77439 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -427,11 +436,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FC864212EC4709100D77439 /* Build configuration list for PBXNativeTarget "SpeedwayGameTests" */ = {
+		6FC864AA2EC4747F00D77439 /* Build configuration list for PBXNativeTarget "SpeedwayGameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6FC864222EC4709100D77439 /* Debug */,
-				6FC864232EC4709100D77439 /* Release */,
+				6FC864A82EC4747F00D77439 /* Debug */,
+				6FC864A92EC4747F00D77439 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
