@@ -9,8 +9,7 @@ import SwiftUI
 import UIKit
 
 struct TimerView: View {
-    @Binding var remainingTime: Int
-    @Binding var timer: Timer?
+    @ObservedObject var controller: GameController
     
     var largeTitleSystemFontSize: CGFloat {
         let uiFont = UIFont.preferredFont(forTextStyle: .largeTitle)
@@ -20,10 +19,10 @@ struct TimerView: View {
     var body: some View {
         Text(formattedTime)
             .onAppear {
-                startTimer()
+                controller.startTimer()
             }
             .onDisappear {
-                stopTimer()
+                controller.stopTimer()
             }
             .padding(.all, 6)
             .shadow(color: .black, radius: 3)
@@ -35,31 +34,11 @@ struct TimerView: View {
     } // end body: some View
     
     var formattedTime: String {
-        let minutes = remainingTime/60
-        let seconds = remainingTime % 60
+        let minutes = controller.remainingTime/60
+        let seconds = controller.remainingTime % 60
         return String(format: "%0d:%02d", minutes, seconds)
     }
     
-    
-    
-    private func startTimer() {
-        stopTimer()
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
-            if (remainingTime > 0) {
-                remainingTime -= 1
-            } else if (remainingTime == 0) {
-                stopTimer()
-            }
-            
-        }
-    } // end startTimer()
-    
-    
-    private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
     
     
     
@@ -67,5 +46,6 @@ struct TimerView: View {
 
 
 #Preview {
-    TimerView(remainingTime: Binding.constant(120), timer: Binding.constant(nil))
+    let controller = GameController()
+    TimerView(controller: controller)
 }

@@ -8,18 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var remainingTime: Int = 240
-    @State private var timer: Timer? = nil
     
-    @State private var players = [
+    @StateObject private var controller = GameController(players:     [
         Player(firstName: "Maciej", lastName: "J", imageName: "player1"),
         Player(firstName: "Bart", lastName: "K", imageName: "player2"),
         Player(firstName: "Daniel", lastName: "B", imageName: "player3"),
         Player(firstName: "Tai", lastName: "W", imageName: "player1")
-    ]
-    @State private var editMode: EditMode = .active
+    ])
     
-    private var timeToStart = Date.now
+    @State private var editMode: EditMode = .active
     
     var body: some View {
         
@@ -44,7 +41,7 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    TimerView(remainingTime: $remainingTime, timer: $timer)
+                    TimerView(controller: controller)
                     
                     Spacer()
                 }
@@ -59,7 +56,7 @@ struct ContentView: View {
                 
                 VStack{
                     List {
-                        ForEach(Array(players.enumerated()), id: \.element.id) { index, player in
+                        ForEach(Array(controller.players.enumerated()), id: \.element.id) { index, player in
                             
                             HStack{
                                 
@@ -100,7 +97,7 @@ struct ContentView: View {
                         
                             
                         }
-                        .onMove(perform: onMove)
+                        .onMove(perform: controller.onMove)
                     }
                     .environment(\.editMode, $editMode)
                     .scrollContentBackground(.hidden)
